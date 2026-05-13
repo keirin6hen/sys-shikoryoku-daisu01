@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>システム数学　思考力問題</title>
+  <style>
+:root{
+  --bg1:#0b1020;
+  --bg2:#0a2a44;
+  --card:#0f172aee;
+  --line:#94a3b8;
+  --text:#e5e7eb;
+  --muted:#cbd5e1;
+  --accent:#38bdf8;
+  --accent2:#a78bfa;
+  --shadow: 0 18px 45px rgba(0,0,0,.35);
+  --radius: 18px;
+
+  /* 追加：端末に応じて余白を可変に */
+  --pad: clamp(12px, 2.6vw, 18px);
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+  color:var(--text);
+  min-height:100svh;
+  background:
+    radial-gradient(1200px 700px at 15% 10%, rgba(56,189,248,.25), transparent 60%),
+    radial-gradient(900px 650px at 85% 15%, rgba(167,139,250,.22), transparent 55%),
+    linear-gradient(135deg, var(--bg1), var(--bg2));
+  display:flex;
+  justify-content:center;
+
+  /* 追加：iOSで横スクロール事故を防ぎやすい */
+  overflow-x:hidden;
+}
+
+.wrap{
+  width:min(1100px, 92vw);
+  padding: clamp(16px, 4vw, 32px) 0 28px;
+}
+
+header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+  flex-wrap:wrap; /* 追加：狭い画面で折り返す */
+}
+
+h1{
+  margin:0;
+  font-size:clamp(20px, 4.6vw, 34px);
+  letter-spacing:.02em;
+  line-height:1.15;
+}
+
+.badge{
+  font-size:12px;
+  color:var(--muted);
+  padding:8px 10px;
+  border:1px solid rgba(148,163,184,.35);
+  border-radius:999px;
+  background:rgba(15,23,42,.35);
+  backdrop-filter: blur(8px);
+  white-space:nowrap;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid rgba(148,163,184,.22);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.section{
+  padding: var(--pad);
+  border-top:1px solid rgba(148,163,184,.18);
+}
+.section:first-child{ border-top:none; }
+
+.section h2{
+  margin:0 0 12px;
+  font-size:14px;
+  color:var(--muted);
+  letter-spacing:.08em;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.section h2::before{
+  content:"";
+  width:10px;
+  height:10px;
+  border-radius:3px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 0 0 4px rgba(56,189,248,.12);
+}
+
+.problem-frame{
+  border:2px solid rgba(148,163,184,.65);
+  border-radius:14px;
+  padding: clamp(10px, 2.4vw, 14px);
+  background:rgba(2,6,23,.25);
+}
+
+.problem-frame img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:100%;
+  border-radius:10px;
+}
+
+.actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+
+button{
+  appearance:none;
+  border:none;
+  cursor:pointer;
+  color:#06121f;
+  font-weight:800;
+  letter-spacing:.02em;
+  padding:12px 16px;
+  border-radius:12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 12px 24px rgba(56,189,248,.18);
+  transition: transform .08s ease, filter .2s ease;
+  min-height:44px; /* 追加：タップしやすい */
+}
+
+button:hover{ filter: brightness(1.05); }
+button:active{ transform: translateY(1px) scale(.99); }
+
+button:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+  filter:saturate(.7);
+}
+
+.hint{
+  color:rgba(203,213,225,.85);
+  font-size:13px;
+}
+
+footer{
+  margin-top:12px;
+  color:rgba(203,213,225,.7);
+  font-size:12px;
+  text-align:right;
+}
+
+/* スマホ最適化 */
+@media (max-width: 600px){
+  .wrap{ width: min(1100px, 94vw); }
+  .badge{ font-size:11px; padding:6px 9px; }
+  .actions{ gap:8px; }
+  button{
+    width:100%;            /* 追加：ボタンを全面に */
+    justify-content:center;
+  }
+  .hint{
+    width:100%;
+    font-size:12px;
+  }
+}
+
+/* iPad縦など：見た目の呼吸を少し増やす */
+@media (min-width: 601px) and (max-width: 1024px){
+  .wrap{ width:min(1100px, 94vw); }
+}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1>システム数学　思考力問題</h1>
+      <div class="badge">Problem Viewer</div>
+    </header>
+
+    <main class="card">
+      <section class="section">
+        <h2>問題</h2>
+        <div class="problem-frame">
+          <img id="problemImg" src="" alt="思考力問題（問題画像）">
+        </div>
+
+        <div class="actions">
+          <button id="askBtn" type="button" disabled>ChatGPTに聞く</button>
+          <div class="hint" id="hintText">読み込み中…</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>© Shinko Keirin 6kyo</footer>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id'); // "01"～"99" 想定
+
+    // 2桁(01-99)で固定
+    if (!/^(0[1-9]|[1-9][0-9])$/.test(id ?? "")) {
+      document.getElementById('hintText').textContent = 'URLは ?id=01〜99 で指定してください。';
+      throw new Error('invalid id');
+    }
+
+    // 画像差し替え：mondai**.png
+    const imgPath = `./mondaiimg/mondai${id}.png`;
+    const imgEl = document.getElementById('problemImg');
+    imgEl.src = imgPath;
+
+    // urldata.json から共有URLを取得
+    fetch('./urldata.json', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : Promise.reject(new Error('urldata.json load failed')))
+      .then(db => {
+        const SHARE_URL = db[id];
+        if (!SHARE_URL) throw new Error(`url not found for id=${id}`);
+
+        const btn = document.getElementById('askBtn');
+        btn.disabled = false;
+        document.getElementById('hintText').textContent = 'クリックすると別タブで開きます。';
+
+        btn.addEventListener('click', () => {
+          window.open(SHARE_URL, '_blank', 'noopener,noreferrer');
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('askBtn').disabled = true;
+        document.getElementById('hintText').textContent = 'リンク情報を読み込めませんでした。';
+      });
+  </script>
+</body>
+</html>
