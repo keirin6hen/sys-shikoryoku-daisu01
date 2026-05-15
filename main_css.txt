@@ -1,0 +1,204 @@
+/* ===== 全体デザイン ===== */
+
+:root{
+  --accent: #4f8cff;        /* 落ち着いた青 */
+  --accent-soft: #eef4ff;   /* 薄い青背景 */
+  --border: #cbd5e1;        /* ニュートラルグレー */
+}
+
+body {
+  margin: 1.5em auto;
+  max-width: 75ch;
+  padding: 0 1em;
+
+  background-color: #ffffff !important; /* 常に白 */
+  color: #111111 !important;           /* 濃い黒で視認性確保 */
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+}
+
+/* ダークモード無効化 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+  }
+}
+
+/* ===== 見出し（見やすく） ===== */
+h1, h2, h3, h4, h5 {
+  line-height: 1.4;
+  font-weight: bold;
+  color: #111;
+}
+
+/* 見出しにやさしい装飾 */
+.chapterHead, .likechapterHead {
+  font-size: 1.8em;
+  border-left: 8px solid var(--accent);
+  padding-left: 0.5em;
+  background: var(--accent-soft);
+  border-radius: 6px;
+}
+
+.sectionHead, .likesectionHead {
+  font-size: 1.5em;
+  border-left: 6px solid var(--accent);
+  padding-left: 0.5em;
+  background: #f8fbff;
+  border-radius: 6px;
+}
+
+/* ===== 段落 ===== */
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+p + p {
+  margin-top: 1.2em;
+}
+
+/* ===== リンク（見やすく） ===== */
+a {
+  color: #0077cc;
+  text-decoration: underline;
+}
+
+a:hover {
+  background-color: #ffe4e1;
+}
+
+/* ===== ボックス系（カード風） ===== */
+.fbox, .framebox-c, .framebox-l, .framebox-r {
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 0.6em;
+  background-color: #ffffff;
+}
+
+/* 定理など */
+div.newtheorem {
+  margin: 2em 0;
+  padding: 1em;
+  background: #f9f9ff;
+  border-left: 6px solid #c3bef0;
+  border-radius: 10px;
+}
+
+/* ===== リスト ===== */
+ul li, ol li {
+  margin-bottom: 0.4em;
+}
+
+/* ===== テーブル（見やすく） ===== */
+table.tabular {
+  border-collapse: collapse;
+  margin: 1em auto;
+}
+
+table.tabular td {
+  border: 1px solid #ccc;
+  padding: 0.4em 0.6em;
+}
+
+/* ===== 数式画像（見やすく） ===== */
+img.math {
+  vertical-align: middle;
+}
+
+/* ===== 余白調整 ===== */
+div.center {
+  margin: 1.5em 0;
+}
+
+/* ===== キャプション ===== */
+div.caption {
+  font-size: 0.95em;
+  color: #333;
+}
+
+/* ===== 強調 ===== */
+.underline {
+  text-decoration: underline;
+}
+
+.overline {
+  text-decoration: overline;
+}
+
+/* ===== 控えめアクセント ===== */
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, #ffb6c1, #b0e0e6);
+  border-radius: 2px;
+}
+
+/* ===== 枠（問題画像）===== */
+.problem-frame{
+  border:2px solid var(--border);
+  border-radius:14px;
+  padding: clamp(10px, 2.4vw, 14px);
+
+  background:#ffffff;
+  box-shadow: 0 6px 14px rgba(0,0,0,.06);
+}
+
+/* ラベル */
+.problem-frame::before{
+  content:"問題";
+  display:inline-block;
+  font-size:0.8rem;
+  font-weight:700;
+  color:#ffffff;
+
+  background:var(--accent);
+  padding:2px 10px;
+  border-radius:999px;
+
+  margin-bottom:8px;
+}
+
+/* 画像 */
+.problem-frame img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:100%;
+  border-radius:12px;
+}
+
+/* ===== ヒント（微調整して統一感UP）===== */
+details.hint{
+  margin:.8rem 0 1rem;
+  background:#ffffff;
+  border:2px solid var(--border);
+  border-radius:14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.06);
+  overflow:hidden;
+}
+
+/* 見出し */
+details.hint > summary{
+  list-style:none;
+  cursor:pointer;
+  padding:.7rem .9rem;
+  font-weight:700;
+  color:#111;
+
+  background: var(--accent-soft);
+}
+
+details.hint > summary::-webkit-details-marker{ display:none; }
+
+details.hint[open] > summary{
+  border-bottom:1px solid var(--border);
+}
+
+details.hint .hint__body{
+  padding:.85rem .95rem;
+  color:#111;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html lang='en-US' xml:lang='en-US'> 
+<head><title>システム数学 思考力問題の考え方</title> 
+<meta charset='utf-8' /> 
+<meta content='TeX4ht (https://tug.org/tex4ht/)' name='generator' /> 
+<meta content='width=device-width,initial-scale=1' name='viewport' /> 
+<link href='main.css' rel='stylesheet' type='text/css' /> 
+<meta content='main.tex' name='src' /> 
+<script>window.MathJax = { tex: { tags: "ams", }, }; </script> 
+<script async='async' id='MathJax-script' src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js' type='text/javascript'></script>  
+</head><body>
+<div class='maketitle'>
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+
+<h2 class='titleHead'>システム数学 思考力問題の考え方</h2>
+ <div class='author'><span class='ec-lmr-12'>代数編</span></div>
+<br />
+<div class='date'></div>
+</div>
+<!-- l. 29 --><p class='noindent'></p><div class='problem-frame'><img alt='PIC' height='227' src='./mondaiimg/mondai01.png' width='227' />
+<p></p><!-- l. 34 --><p class='noindent'></p></div>
+<p></p><!-- l. 53 --><p class='noindent'></p><details class='hint'> <summary class='hint__btn'>考え方1</summary> <div class='hint__body'>\(ab=2\)となる整数\(a\)，\(b\)の組をすべて書き出してみましょう。<br />さらに，\(abcde=2\)を満たす整数の組（\(a\)，\(b\)，\(c\)，\(d\)，\(e\)） をいくつか書き出してみましょう。</div> </details> <details class='hint'> <summary class='hint__btn'>考え方2</summary> <div class='hint__body'>\(a\)，\(b\)，\(c\)，\(d\)，\(e\)は\(2\)の約数である\(1\)，\(-1\)，\(2\)，\(-2\)のいずれかであるとわかります。</div> </details> <details class='hint'> <summary class='hint__btn'>考え方3</summary> <div class='hint__body'>（\(a\)，\(b\)，\(c\)，\(d\)，\(e\)） の個数ですが，\(a\)，\(b\)，\(c\)，\(d\)，\(e\)の絶対値と符号に注目しましょう。</div> </details> 
+<p></p>
+ 
+</body> 
+</html>
+                                                                                       
+
+
