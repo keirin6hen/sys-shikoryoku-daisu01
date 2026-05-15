@@ -26,6 +26,40 @@ body {
     color: #111111 !important;
   }
 }
+.page-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom 3px solid var(--accent);
+}
+
+.page-title {
+  margin 0 0 0.5rem 0;
+  font-size: 1.8em;
+}
+
+.page-subtitle {
+  margin 0;
+  font-size: 1.2em;
+  color: #666;
+}
+
+.problem-section {
+  margin-bottom: 2rem;
+}
+
+.hints-section {
+  margin-top 2rem;
+}
+
+.hint-figure {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.hint-figure img {
+  max-width: 100%;
+  border-radius: 8px;
+}
 
 /* ===== 見出し（見やすく） ===== */
 h1, h2, h3, h4, h5 {
